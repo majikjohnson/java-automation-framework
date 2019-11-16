@@ -1,0 +1,9 @@
+{
+  "users": [
+    {
+      "description": "User that exists in DB",
+      "email": "matt@johnson.com",
+      "password": "abc123"
+    }
+  ]
+}
