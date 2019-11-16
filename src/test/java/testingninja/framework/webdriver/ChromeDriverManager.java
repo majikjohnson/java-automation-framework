@@ -6,6 +6,5 @@ public class ChromeDriverManager extends DriverManager {
     @Override
     protected void createWebDriver() {
         driver = new ChromeDriver();
-        //setTimeout();
     }
 }

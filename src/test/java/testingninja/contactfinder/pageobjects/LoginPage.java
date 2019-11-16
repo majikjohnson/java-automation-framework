@@ -8,6 +8,7 @@ public class LoginPage extends BasePage {
     private By emailTextBox = By.cssSelector("[data-testid=\"login-email\"]");
     private By passwordTextBox = By.cssSelector("[data-testid=\"login-password\"]");
     private By loginButton = By.cssSelector("[data-testid=\"login-submit\"]");
+    private By loginErrorMessage = By.cssSelector("[data-testid=\"error-alert\"]");
 
     public LoginPage(DriverWrapper driver) {
         super(driver);
@@ -27,6 +28,11 @@ public class LoginPage extends BasePage {
 
     public void clickLoginButton() {
         driverWrapper.click(loginButton);
+    }
+
+    public String getLoginErrorMessage() {
+        driverWrapper.waitForElementVisible(loginErrorMessage);
+        return driverWrapper.getText(loginErrorMessage);
     }
 
     public ContactsPage login(String email, String password) {

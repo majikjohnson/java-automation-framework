@@ -5,39 +5,28 @@ import testingninja.contactfinder.pageobjects.ContactsPage;
 import testingninja.contactfinder.pageobjects.LoginPage;
 import testingninja.contactfinder.pageobjects.NavbarPage;
 import testingninja.framework.utils.UserTestData;
-import testingninja.framework.webdriver.DriverManager;
-import testingninja.framework.webdriver.DriverManagerFactory;
-import testingninja.framework.webdriver.DriverType;
-import testingninja.framework.webdriver.DriverWrapper;
+import testingninja.framework.webdriver.*;
 
 import static org.testng.Assert.*;
 
 public class LoginTests {
-    private DriverManager driverManager;
-    private DriverWrapper driverWrapper;
+    //private DriverManager driverManager;
+    //private DriverWrapper driverWrapper;
+    DriverType browser;
     private UserTestData userTestData;
 
     @BeforeSuite
     public void beforeAll() {
-        DriverType browser = DriverType.valueOf(System.getProperty("browser"));
-        driverManager = DriverManagerFactory.getDriverManager(browser);
+        this.browser = DriverType.valueOf(System.getProperty("browser"));
         ClassLoader classLoader = getClass().getClassLoader();
         String file = classLoader.getResource("TestData/users.json").getFile();
         userTestData = new UserTestData((file));
     }
 
-    @BeforeTest
-    public void beforeEach() {
-        driverWrapper = driverManager.getDriverWrapper();
-    }
-
-    @AfterTest
-    public void afterEach() {
-        driverManager.quitWebDriver();
-    }
-
     @Test
     public void shouldLoginSuccessfully() {
+        DriverWrapper driverWrapper = LocalDriverManager.getDriverWrapper();
+
         String email = userTestData.getEmail(0);
         String password = userTestData.getPassword(0);
 
@@ -52,5 +41,21 @@ public class LoginTests {
 
         assertEquals(contactsPageHeading, "Add Contact");
         assertEquals(navbarGreeting, "Hello Matt |");
+    }
+
+    @Test
+    public void shouldShowIncorrectPasswordError() {
+        DriverWrapper driverWrapper = LocalDriverManager.getDriverWrapper();
+
+        String email = userTestData.getEmail(0);
+        String password = "BADPASSWORD";
+
+        LoginPage loginPage = new LoginPage(driverWrapper);
+        loginPage.open();
+        loginPage.invalidLogin(email, password);
+        String errorMessage = loginPage.getLoginErrorMessage();
+
+        assertEquals(errorMessage, "Incorrect password");
+
     }
 }

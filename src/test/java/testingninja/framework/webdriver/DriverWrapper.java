@@ -23,6 +23,10 @@ public class DriverWrapper {
         driver.get(url);
     }
 
+    public void quit() {
+        driver.quit();
+    }
+
     public void click(By selector) {
         driver.findElement(selector).click();
     }

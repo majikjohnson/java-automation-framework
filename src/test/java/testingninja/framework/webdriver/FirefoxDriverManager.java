@@ -6,6 +6,5 @@ public class FirefoxDriverManager extends DriverManager {
     @Override
     protected void createWebDriver() {
         driver = new FirefoxDriver();
-        setTimeout();
     }
 }
