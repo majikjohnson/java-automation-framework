@@ -9,15 +9,15 @@ public class DriverListener implements IInvokedMethodListener {
     public void beforeInvocation(IInvokedMethod method, ITestResult testResult) {
         if (method.isTestMethod()) {
             DriverType browser = DriverType.valueOf(System.getProperty("browser"));
-            DriverWrapper driverWrapper = LocalDriverFactory.createInstance(browser);
-            LocalDriverManager.setDriverWrapper(driverWrapper);
+            DriverWrapper driverWrapper = DriverFactory.createInstance(browser);
+            DriverManager.setDriverWrapper(driverWrapper);
         }
     }
 
     @Override
     public void afterInvocation(IInvokedMethod method, ITestResult testResult) {
         if (method.isTestMethod()) {
-            DriverWrapper driverWrapper = LocalDriverManager.getDriverWrapper();
+            DriverWrapper driverWrapper = DriverManager.getDriverWrapper();
             if (driverWrapper != null) {
                 driverWrapper.quit();
             }

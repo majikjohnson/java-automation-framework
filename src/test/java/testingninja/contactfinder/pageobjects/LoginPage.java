@@ -4,11 +4,12 @@ import org.openqa.selenium.By;
 import testingninja.framework.webdriver.DriverWrapper;
 
 public class LoginPage extends BasePage {
-    private String url = "https://shrouded-river-59487.herokuapp.com/login";
-    private By emailTextBox = By.cssSelector("[data-testid=\"login-email\"]");
-    private By passwordTextBox = By.cssSelector("[data-testid=\"login-password\"]");
-    private By loginButton = By.cssSelector("[data-testid=\"login-submit\"]");
-    private By loginErrorMessage = By.cssSelector("[data-testid=\"error-alert\"]");
+    private final String url = "https://shrouded-river-59487.herokuapp.com/login";
+    private final By heading = By.cssSelector("[data-testid=\"login-page\"]");
+    private final By emailTextBox = By.cssSelector("[data-testid=\"login-email\"]");
+    private final By passwordTextBox = By.cssSelector("[data-testid=\"login-password\"]");
+    private final By loginButton = By.cssSelector("[data-testid=\"login-submit\"]");
+    private final By loginErrorMessage = By.cssSelector("[data-testid=\"error-alert\"]");
 
     public LoginPage(DriverWrapper driver) {
         super(driver);

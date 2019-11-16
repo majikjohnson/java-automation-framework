@@ -23,7 +23,7 @@ public class DriverWrapper {
         driver.get(url);
     }
 
-    public void quit() {
+    void quit() {
         driver.quit();
     }
 

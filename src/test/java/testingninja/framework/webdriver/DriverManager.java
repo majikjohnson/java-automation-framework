@@ -1,45 +1,13 @@
 package testingninja.framework.webdriver;
 
-import org.openqa.selenium.WebDriver;
+public class DriverManager {
+    private static ThreadLocal<DriverWrapper> driverWrapper = new ThreadLocal<DriverWrapper>();
 
-import java.util.concurrent.TimeUnit;
-
-public abstract class DriverManager {
-    WebDriver driver;
-    private DriverWrapper driverWrapper;
-    private static final int DEFAULT_TIMEOUT = 10;
-
-    protected abstract void createWebDriver();
-
-    private void setup() {
-        if(driver == null) createWebDriver();
-        if(driverWrapper == null) driverWrapper = new DriverWrapper(driver);
+    public static DriverWrapper getDriverWrapper() {
+        return driverWrapper.get();
     }
 
-    public WebDriver getWebDriver() {
-        setup();
-        return driver;
+    static void setDriverWrapper(DriverWrapper wrapper) {
+        driverWrapper.set(wrapper);
     }
-
-    public DriverWrapper getDriverWrapper() {
-        setup();
-        return driverWrapper;
-    }
-
-    public void quitWebDriver() {
-        if (driver != null) {
-            driver.quit();
-            driver = null;
-        }
-    }
-
-    void setTimeout() {
-        setTimeout(DEFAULT_TIMEOUT);
-    }
-
-    private void setTimeout(int timeout) {
-        driver.manage().timeouts().implicitlyWait(timeout, TimeUnit.SECONDS);
-    }
-
-
 }

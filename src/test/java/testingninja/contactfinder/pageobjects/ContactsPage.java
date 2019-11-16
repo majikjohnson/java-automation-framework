@@ -4,7 +4,7 @@ import org.openqa.selenium.By;
 import testingninja.framework.webdriver.DriverWrapper;
 
 public class ContactsPage extends BasePage {
-    private By heading = By.cssSelector("[data-testid=\"form-title\"]");
+    private final By heading = By.cssSelector("[data-testid=\"form-title\"]");
 
     public ContactsPage(DriverWrapper driverWrapper) {
         super(driverWrapper);

@@ -25,7 +25,7 @@ public class LoginTests {
 
     @Test
     public void shouldLoginSuccessfully() {
-        DriverWrapper driverWrapper = LocalDriverManager.getDriverWrapper();
+        DriverWrapper driverWrapper = DriverManager.getDriverWrapper();
 
         String email = userTestData.getEmail(0);
         String password = userTestData.getPassword(0);
@@ -45,7 +45,7 @@ public class LoginTests {
 
     @Test
     public void shouldShowIncorrectPasswordError() {
-        DriverWrapper driverWrapper = LocalDriverManager.getDriverWrapper();
+        DriverWrapper driverWrapper = DriverManager.getDriverWrapper();
 
         String email = userTestData.getEmail(0);
         String password = "BADPASSWORD";
@@ -56,6 +56,5 @@ public class LoginTests {
         String errorMessage = loginPage.getLoginErrorMessage();
 
         assertEquals(errorMessage, "Incorrect password");
-
     }
 }

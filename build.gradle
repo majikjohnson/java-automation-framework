@@ -36,6 +36,7 @@ test {
         useDefaultListeners = true
         suites 'src/test/resources/TestNG/testng.xml'
         options {
+            //https://rationaleemotions.wordpress.com/2013/07/31/parallel-webdriver-executions-using-testng/
             parallel = 'methods'
             threadCount = 3
         }

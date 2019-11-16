@@ -4,15 +4,15 @@ import org.openqa.selenium.By;
 import testingninja.framework.webdriver.DriverWrapper;
 
 public class NavbarPage extends BasePage {
-    private By userGreeting = By.cssSelector("[data-testid=\"user-greeting\"]");
-    private static final String HEADING_PATTERN = "Hello [^|]* \\|";
+    private final By userGreeting = By.cssSelector("[data-testid=\"user-greeting\"]");
+    private final String headingPattern = "Hello [^|]* \\|";
 
     public NavbarPage(DriverWrapper driverWrapper) {
         super(driverWrapper);
     }
 
     public String getUserGreeting() {
-        driverWrapper.waitForTextPatternPresent(userGreeting, HEADING_PATTERN);
+        driverWrapper.waitForTextPatternPresent(userGreeting, headingPattern);
         return driverWrapper.getText(userGreeting);
     }
 }
