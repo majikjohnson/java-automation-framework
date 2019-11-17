@@ -46,6 +46,7 @@ public class DriverWrapper {
     }
 
     public void waitForTextPatternPresent(By selector, String pattern) {
+        //https://trickyautomationworld.blogspot.com/2018/02/selenium-wrapper-automation_76.html
         WebDriverWait wait = new WebDriverWait(driver, RETRY_WAIT_SECONDS);
 
         int retry = 0;
