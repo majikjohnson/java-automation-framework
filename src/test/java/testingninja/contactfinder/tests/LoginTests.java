@@ -1,6 +1,5 @@
 package testingninja.contactfinder.tests;
 
-import org.testng.SkipException;
 import org.testng.annotations.*;
 import testingninja.contactfinder.dso.UserTestData;
 import testingninja.contactfinder.pageobjects.ContactsPage;
