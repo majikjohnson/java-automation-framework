@@ -1,26 +1,21 @@
 package testingninja.contactfinder.tests;
 
+import org.testng.SkipException;
 import org.testng.annotations.*;
+import testingninja.contactfinder.dso.UserTestData;
 import testingninja.contactfinder.pageobjects.ContactsPage;
 import testingninja.contactfinder.pageobjects.LoginPage;
 import testingninja.contactfinder.pageobjects.NavbarPage;
-import testingninja.framework.utils.UserTestData;
 import testingninja.framework.webdriver.*;
 
 import static org.testng.Assert.*;
 
 public class LoginTests {
-    //private DriverManager driverManager;
-    //private DriverWrapper driverWrapper;
-    DriverType browser;
     private UserTestData userTestData;
 
     @BeforeSuite
     public void beforeAll() {
-        this.browser = DriverType.valueOf(System.getProperty("browser"));
-        ClassLoader classLoader = getClass().getClassLoader();
-        String file = classLoader.getResource("TestData/users.json").getFile();
-        userTestData = new UserTestData((file));
+            userTestData = new UserTestData("TestData/users.json");
     }
 
     @Test
