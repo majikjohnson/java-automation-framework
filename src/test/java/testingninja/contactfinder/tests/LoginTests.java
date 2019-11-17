@@ -15,15 +15,15 @@ public class LoginTests {
 
     @BeforeSuite
     public void beforeAll() {
-            userTestData = new UserTestData("TestData/users.json");
+        userTestData = new UserTestData("TestData/users.json");
     }
 
     @Test
     public void shouldLoginSuccessfully() {
         DriverWrapper driverWrapper = DriverManager.getDriverWrapper();
 
-        String email = userTestData.getEmail(0);
-        String password = userTestData.getPassword(0);
+        String email = userTestData.getEmail("validUser");
+        String password = userTestData.getPassword("validUser");
 
         LoginPage loginPage = new LoginPage(driverWrapper);
         loginPage.open();
@@ -42,8 +42,8 @@ public class LoginTests {
     public void shouldShowIncorrectPasswordError() {
         DriverWrapper driverWrapper = DriverManager.getDriverWrapper();
 
-        String email = userTestData.getEmail(0);
-        String password = "BADPASSWORD";
+        String email = userTestData.getEmail("invalidPassword");
+        String password = userTestData.getPassword("invalidPassword");
 
         LoginPage loginPage = new LoginPage(driverWrapper);
         loginPage.open();
