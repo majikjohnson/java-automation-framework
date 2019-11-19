@@ -1,11 +1,10 @@
 package testingninja.framework.webdriver;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.NotFoundException;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.io.File;
 
 public class DriverWrapper {
     private final int DEFAULT_TIMEOUT_SECONDS = 5;
@@ -64,5 +63,14 @@ public class DriverWrapper {
         if (!matchFound) {
             throw new NotFoundException("Unable to find text matching pattern: " + pattern);
         }
+    }
+
+    public WebDriver getDriver() {
+        return driver;
+    }
+
+    public File takeScreenshot() {
+        TakesScreenshot ts = (TakesScreenshot) driver;
+        return ts.getScreenshotAs(OutputType.FILE);
     }
 }

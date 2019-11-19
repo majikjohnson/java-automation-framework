@@ -5,15 +5,16 @@ import testingninja.contactfinder.dso.UserTestData;
 import testingninja.contactfinder.pageobjects.ContactsPage;
 import testingninja.contactfinder.pageobjects.LoginPage;
 import testingninja.contactfinder.pageobjects.NavbarPage;
-import testingninja.framework.webdriver.*;
+import testingninja.framework.webdriver.DriverManager;
+import testingninja.framework.webdriver.DriverWrapper;
 
 import static org.testng.Assert.*;
 
-public class LoginTests {
+public class LoginTests extends BaseTest {
     private UserTestData userTestData;
 
-    @BeforeSuite
-    public void beforeAll() {
+    @BeforeClass
+    public void initTestData() {
         userTestData = new UserTestData("TestData/users.json");
     }
 
@@ -49,6 +50,6 @@ public class LoginTests {
         loginPage.invalidLogin(email, password);
         String errorMessage = loginPage.getLoginErrorMessage();
 
-        assertEquals(errorMessage, "Incorrect password");
+        assertEquals(errorMessage, "Incorrect passwor");
     }
 }

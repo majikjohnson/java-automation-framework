@@ -1,7 +1,7 @@
 package testingninja.framework.webdriver;
 
 public class DriverManager {
-    private static ThreadLocal<DriverWrapper> driverWrapper = new ThreadLocal<DriverWrapper>();
+    private static ThreadLocal<DriverWrapper> driverWrapper = new ThreadLocal<>();
 
     public static DriverWrapper getDriverWrapper() {
         return driverWrapper.get();

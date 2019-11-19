@@ -3,7 +3,7 @@ plugins {
     id 'com.github.erdi.webdriver-binaries' version '2.1'
 }
 
-group 'uk.co.testninga.automation'
+group 'uk.co.testninja.automation'
 version '1.0-SNAPSHOT'
 
 sourceCompatibility = 1.8
@@ -13,6 +13,8 @@ repositories {
 }
 
 dependencies {
+    // https://www.softwaretestingmaterial.com/extent-reports-selenium-version-4/
+    testCompile group: 'com.aventstack', name: 'extentreports', version: '4.0.6'
     testCompile group: 'org.testng', name: 'testng', version: '6.14.3'
     testCompile group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '2.41.0'
     testCompile group: 'org.seleniumhq.selenium', name: 'selenium-chrome-driver', version: '3.141.59'
@@ -29,9 +31,9 @@ webdriverBinaries {
     geckodriver '0.25.0'
 }
 
+//https://stackoverflow.com/questions/43606992/run-a-specific-testng-xml-test-suite-with-gradle-from-command-line/43642736
 test {
     systemProperty 'browser', 'CHROME'
-    //https://stackoverflow.com/questions/43606992/run-a-specific-testng-xml-test-suite-with-gradle-from-command-line/43642736
     useTestNG() {
         useDefaultListeners = true
         suites 'src/test/resources/TestNG/testng.xml'
