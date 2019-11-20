@@ -1,7 +1,6 @@
 package testingninja.framework.utils;
 
 public class ScreenshotManager {
-
     private static ThreadLocal<ScreenshotHelper> screenshotHelper = new ThreadLocal<>();
 
     public static ScreenshotHelper getScreenshotHelper() {

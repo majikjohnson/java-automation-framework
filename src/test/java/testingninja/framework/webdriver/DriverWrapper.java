@@ -8,7 +8,6 @@ import java.io.File;
 
 public class DriverWrapper {
     private final int DEFAULT_TIMEOUT_SECONDS = 5;
-    private final int RETRY_WAIT_SECONDS = 1;
     private final int MAX_RETRIES = 3;
     private WebDriver driver;
     private int timeout;
@@ -22,7 +21,7 @@ public class DriverWrapper {
         driver.get(url);
     }
 
-    void quit() {
+    public void quit() {
         driver.quit();
     }
 
@@ -44,10 +43,9 @@ public class DriverWrapper {
         wait.until(ExpectedConditions.visibilityOfElementLocated(selector));
     }
 
-    public void waitForTextPatternPresent(By selector, String pattern) {
+    public void waitForTextPatternPresent(By selector, String pattern, int waitSeconds) {
         //https://trickyautomationworld.blogspot.com/2018/02/selenium-wrapper-automation_76.html
-        WebDriverWait wait = new WebDriverWait(driver, RETRY_WAIT_SECONDS);
-
+        WebDriverWait wait = new WebDriverWait(driver, waitSeconds); //waitSeconds is the polling interval
         int retry = 0;
         boolean matchFound = false;
 
@@ -63,10 +61,6 @@ public class DriverWrapper {
         if (!matchFound) {
             throw new NotFoundException("Unable to find text matching pattern: " + pattern);
         }
-    }
-
-    public WebDriver getDriver() {
-        return driver;
     }
 
     public File takeScreenshot() {

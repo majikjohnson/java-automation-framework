@@ -7,7 +7,7 @@ public class DriverManager {
         return driverWrapper.get();
     }
 
-    static void setDriverWrapper(DriverWrapper wrapper) {
+    public static void setDriverWrapper(DriverWrapper wrapper) {
         driverWrapper.set(wrapper);
     }
 }

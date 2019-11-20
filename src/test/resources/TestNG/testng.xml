@@ -2,8 +2,8 @@
 
 <suite name="Suite1" verbose="1">
     <listeners>
-        <listener class-name="testingninja.framework.utils.TestListener"></listener>
-        <listener class-name="testingninja.framework.webdriver.DriverListener"></listener>
+        <listener class-name="testingninja.framework.listeners.TestListener"></listener>
+        <listener class-name="testingninja.framework.listeners.InvocationListener"></listener>
     </listeners>
     <test name="E2E Tests">
         <packages>

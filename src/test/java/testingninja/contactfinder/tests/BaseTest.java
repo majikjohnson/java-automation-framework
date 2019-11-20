@@ -1,3 +1,3 @@
 package testingninja.contactfinder.tests;
 
-public class BaseTest { }
+public class BaseTest {}

@@ -2,10 +2,9 @@ package testingninja.framework.webdriver;
 
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.ie.InternetExplorerDriver;
 
-class DriverFactory {
-    static DriverWrapper createInstance(DriverType type) {
+public class DriverFactory {
+    public static DriverWrapper createInstance(DriverType type) {
         DriverWrapper driverWrapper;
 
         switch(type) {
