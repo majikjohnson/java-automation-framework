@@ -23,7 +23,7 @@ public class LoginTests extends BaseTest {
         DriverWrapper driverWrapper = DriverManager.getDriverWrapper();
 
         String email = userTestData.getEmail("validUser");
-        String password = userTestData.getPassword("validUser");
+        String password = userTestData.getDecryptedPassword("validUser");
 
         LoginPage loginPage = new LoginPage(driverWrapper);
         loginPage.open();

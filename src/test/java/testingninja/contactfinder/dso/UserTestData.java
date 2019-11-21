@@ -1,6 +1,7 @@
 package testingninja.contactfinder.dso;
 
 import org.json.simple.JSONObject;
+import testingninja.framework.utils.Crypto;
 import testingninja.framework.utils.JsonDataLoader;
 
 import java.io.IOException;
@@ -27,5 +28,12 @@ public class UserTestData {
     public String getPassword(String userType) {
         JSONObject user = (JSONObject) data.get(userType);
         return (String) user.get("password");
+    }
+
+    public String getDecryptedPassword(String userType) {
+        JSONObject user = (JSONObject) data.get(userType);
+        String encryptedPassword = (String) user.get("password");
+        String key = System.getenv("ENCRYPTION_KEY");
+        return Crypto.decryptPassword(encryptedPassword, key);
     }
 }
