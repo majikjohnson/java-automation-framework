@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import testingninja.framework.webdriver.DriverWrapper;
 
 public class LoginPage extends BasePage {
+    //TODO: get URL from config
     private final String url = "https://shrouded-river-59487.herokuapp.com/login";
     private final By heading = By.cssSelector("[data-testid=\"login-page\"]");
     private final By emailTextBox = By.cssSelector("[data-testid=\"login-email\"]");

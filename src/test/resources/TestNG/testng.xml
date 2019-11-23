@@ -1,11 +1,11 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
-<suite name="Suite1" verbose="1">
+<suite name="E2E Tests" verbose="1">
     <listeners>
-        <listener class-name="testingninja.framework.listeners.TestListener"></listener>
-        <listener class-name="testingninja.framework.listeners.InvocationListener"></listener>
+        <listener class-name="testingninja.framework.listeners.TestListener"/>
+        <listener class-name="testingninja.framework.listeners.InvocationListener"/>
     </listeners>
-    <test name="E2E Tests">
+    <test name="Contact Finder">
         <packages>
             <package name="testingninja.contactfinder.tests" />
         </packages>
