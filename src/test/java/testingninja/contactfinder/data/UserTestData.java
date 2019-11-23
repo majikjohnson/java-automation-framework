@@ -1,4 +1,4 @@
-package testingninja.contactfinder.dso;
+package testingninja.contactfinder.data;
 
 import org.json.simple.JSONObject;
 import testingninja.framework.utils.Crypto;

@@ -1,7 +1,7 @@
 package testingninja.contactfinder.tests;
 
 import org.testng.annotations.*;
-import testingninja.contactfinder.dso.UserTestData;
+import testingninja.contactfinder.data.UserTestData;
 import testingninja.contactfinder.pageobjects.ContactsPage;
 import testingninja.contactfinder.pageobjects.LoginPage;
 import testingninja.contactfinder.pageobjects.NavbarPage;
