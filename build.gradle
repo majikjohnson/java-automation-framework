@@ -6,8 +6,6 @@ plugins {
 group 'uk.co.testninja.automation'
 version '1.0-SNAPSHOT'
 
-sourceCompatibility = 1.8
-
 repositories {
     mavenCentral()
 }
@@ -37,7 +35,6 @@ test {
     systemProperty 'browser', 'CHROME'
     systemProperty 'property.file.name', 'properties/local.properties'
     useTestNG() {
-        useDefaultListeners = true
         suites 'src/test/resources/TestNG/testng.xml'
         options {
             //https://rationaleemotions.wordpress.com/2013/07/31/parallel-webdriver-executions-using-testng/
