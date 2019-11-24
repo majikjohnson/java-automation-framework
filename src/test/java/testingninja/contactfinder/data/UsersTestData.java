@@ -6,10 +6,10 @@ import testingninja.framework.utils.JsonDataLoader;
 
 import java.io.IOException;
 
-public class UserTestData {
+public class UsersTestData {
     private JSONObject data;
 
-    public UserTestData(String resourceName) {
+    public UsersTestData(String resourceName) {
         try {
             ClassLoader classLoader = getClass().getClassLoader();
             String fileName = classLoader.getResource(resourceName).getFile();
