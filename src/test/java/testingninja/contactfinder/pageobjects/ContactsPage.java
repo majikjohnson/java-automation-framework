@@ -8,7 +8,7 @@ public class ContactsPage extends BasePage {
 
     public ContactsPage(DriverWrapper driverWrapper) {
         super(driverWrapper);
-        driverWrapper.waitForElementVisible(heading);
+        driverWrapper.waitForElementVisible(heading, defaultWaitSeconds);
     }
 
     public String getHeading() {
