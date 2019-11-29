@@ -5,7 +5,7 @@ import testingninja.contactfinder.data.UsersTestData;
 import testingninja.contactfinder.pageobjects.ContactsPage;
 import testingninja.contactfinder.pageobjects.LoginPage;
 import testingninja.contactfinder.pageobjects.NavbarPage;
-import testingninja.framework.webdriver.DriverManager;
+import testingninja.framework.webdriver.DriverThreadManager;
 import testingninja.framework.webdriver.DriverWrapper;
 
 import static org.testng.Assert.*;
@@ -20,7 +20,7 @@ public class LoginTests extends BaseTest {
 
     @Test
     public void shouldLoginSuccessfully() {
-        DriverWrapper driverWrapper = DriverManager.getDriverWrapper();
+        DriverWrapper driverWrapper = DriverThreadManager.getDriverWrapper();
 
         String email = userTestData.getEmail("validUser");
         String password = userTestData.getDecryptedPassword("validUser");
@@ -40,7 +40,7 @@ public class LoginTests extends BaseTest {
 
     @Test
     public void shouldShowIncorrectPasswordError() {
-        DriverWrapper driverWrapper = DriverManager.getDriverWrapper();
+        DriverWrapper driverWrapper = DriverThreadManager.getDriverWrapper();
 
         String email = userTestData.getEmail("invalidPassword");
         String password = userTestData.getPassword("invalidPassword");

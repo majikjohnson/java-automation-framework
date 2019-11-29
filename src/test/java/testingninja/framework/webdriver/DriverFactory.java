@@ -9,17 +9,15 @@ public class DriverFactory {
     public static DriverWrapper createInstance(DriverType type) {
         DriverWrapper driverWrapper;
 
-        switch(type) {
-            case CHROME:
-                ChromeOptions chromeOptions = getChromeOptions();
-                driverWrapper = new DriverWrapper(new ChromeDriver(chromeOptions));
-                break;
+        switch (type) {
             case FIREFOX:
                 FirefoxOptions firefoxOptions = getFirefoxOptions();
                 driverWrapper = new DriverWrapper(new FirefoxDriver(firefoxOptions));
                 break;
+            case CHROME:
             default:
-                driverWrapper = new DriverWrapper(new ChromeDriver());
+                ChromeOptions chromeOptions = getChromeOptions();
+                driverWrapper = new DriverWrapper(new ChromeDriver(chromeOptions));
                 break;
         }
         return driverWrapper;
