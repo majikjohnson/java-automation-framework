@@ -32,7 +32,7 @@ webdriverBinaries {
 
 //https://stackoverflow.com/questions/43606992/run-a-specific-testng-xml-test-suite-with-gradle-from-command-line/43642736
 test {
-    systemProperty 'browser', 'CHROME'
+    systemProperty 'browser', 'FIREFOX'
     systemProperty 'property.file.name', 'properties/local.properties'
     useTestNG() {
         suites 'src/test/resources/TestNG/testng.xml'
