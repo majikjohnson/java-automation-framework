@@ -7,14 +7,11 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.io.File;
 
 public class DriverWrapper {
-    private final int DEFAULT_TIMEOUT_SECONDS = 5;
-    private final int MAX_RETRIES = 3;
+    private final int MAX_RETRIES = 5;
     private WebDriver driver;
-    private int timeout;
 
     DriverWrapper(WebDriver driver) {
         this.driver = driver;
-        this.timeout = DEFAULT_TIMEOUT_SECONDS;
     }
 
     public void open(String url) {
@@ -25,32 +22,32 @@ public class DriverWrapper {
         driver.quit();
     }
 
-    public void click(By selector) {
-        driver.findElement(selector).click();
+    public void click(By locator) {
+        driver.findElement(locator).click();
     }
 
-    public void type(By selector, String text) {
-        driver.findElement(selector).clear();
-        driver.findElement(selector).sendKeys(text);
+    public void type(By locator, String text) {
+        driver.findElement(locator).clear();
+        driver.findElement(locator).sendKeys(text);
     }
 
-    public String getText(By selector) {
-        return driver.findElement(selector).getText();
+    public String getText(By locator) {
+        return driver.findElement(locator).getText();
     }
 
-    public void waitForElementVisible(By selector) {
-        WebDriverWait wait = new WebDriverWait(driver, timeout);
-        wait.until(ExpectedConditions.visibilityOfElementLocated(selector));
+    public void waitForElementVisible(By locator, int waitSeconds) {
+        WebDriverWait wait = new WebDriverWait(driver, waitSeconds);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
     }
 
-    public void waitForTextPatternPresent(By selector, String pattern, int waitSeconds) {
+    public void waitForTextPatternPresent(By locator, String pattern, int waitSeconds) {
         //https://trickyautomationworld.blogspot.com/2018/02/selenium-wrapper-automation_76.html
         WebDriverWait wait = new WebDriverWait(driver, waitSeconds); //waitSeconds is the polling interval
         int retry = 0;
         boolean matchFound = false;
 
         while (retry < MAX_RETRIES && !matchFound) {
-            WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(selector));
+            WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
             String text = element.getText();
             if (text.matches(pattern)) {
                 matchFound = true;

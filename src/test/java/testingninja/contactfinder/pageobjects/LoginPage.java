@@ -33,7 +33,7 @@ public class LoginPage extends BasePage {
     }
 
     public String getLoginErrorMessage() {
-        driverWrapper.waitForElementVisible(loginErrorMessage);
+        driverWrapper.waitForElementVisible(loginErrorMessage, defaultWaitSeconds);
         return driverWrapper.getText(loginErrorMessage);
     }
 

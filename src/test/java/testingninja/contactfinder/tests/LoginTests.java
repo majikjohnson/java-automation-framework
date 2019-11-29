@@ -1,7 +1,7 @@
 package testingninja.contactfinder.tests;
 
 import org.testng.annotations.*;
-import testingninja.contactfinder.data.UserTestData;
+import testingninja.contactfinder.data.UsersTestData;
 import testingninja.contactfinder.pageobjects.ContactsPage;
 import testingninja.contactfinder.pageobjects.LoginPage;
 import testingninja.contactfinder.pageobjects.NavbarPage;
@@ -11,11 +11,11 @@ import testingninja.framework.webdriver.DriverWrapper;
 import static org.testng.Assert.*;
 
 public class LoginTests extends BaseTest {
-    private UserTestData userTestData;
+    private UsersTestData userTestData;
 
     @BeforeClass
     public void initTestData() {
-        userTestData = new UserTestData("TestData/users.json");
+        userTestData = new UsersTestData("TestData/users.json");
     }
 
     @Test
