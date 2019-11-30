@@ -1,5 +1,5 @@
 package testingninja.framework.webdriver;
 
 public enum DriverType {
-    CHROME, FIREFOX;
+    CHROME, FIREFOX, IEXPLORER, EDGE;
 }

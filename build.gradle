@@ -1,6 +1,5 @@
 plugins {
     id 'java'
-    id 'com.github.erdi.webdriver-binaries' version '2.1'
 }
 
 group 'uk.co.testninja.automation'
@@ -13,26 +12,20 @@ repositories {
 dependencies {
     // https://www.softwaretestingmaterial.com/extent-reports-selenium-version-4/
     testCompile group: 'com.aventstack', name: 'extentreports', version: '4.0.6'
+    testCompile group: 'io.github.bonigarcia', name: 'webdrivermanager', version: '3.7.1'
     testCompile group: 'org.testng', name: 'testng', version: '6.14.3'
     testCompile group: 'commons-io', name: 'commons-io', version: '2.4'
     testCompile group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '3.141.59'
     testCompile group: 'org.seleniumhq.selenium', name: 'selenium-chrome-driver', version: '3.141.59'
     testCompile group: 'org.seleniumhq.selenium', name: 'selenium-firefox-driver', version: '3.141.59'
+    testCompile group: 'org.seleniumhq.selenium', name: 'selenium-ie-driver', version: '3.141.59'
+    testCompile group: 'org.seleniumhq.selenium', name: 'selenium-edge-driver', version: '3.141.59'
     testCompile group: 'com.googlecode.json-simple', name: 'json-simple', version: '1.1.1'
-}
-
-//See - https://plugins.gradle.org/plugin/com.github.erdi.webdriver-binaries
-webdriverBinaries {
-    chromedriver {
-        version = '77.0.3865.40'
-        architecture = 'X86'
-    }
-    geckodriver '0.25.0'
 }
 
 //https://stackoverflow.com/questions/43606992/run-a-specific-testng-xml-test-suite-with-gradle-from-command-line/43642736
 test {
-    systemProperty 'browser', 'FIREFOX'
+    systemProperty 'browser', 'CHROME'
     systemProperty 'property.file.name', 'properties/local.properties'
     useTestNG() {
         suites 'src/test/resources/TestNG/testng.xml'
