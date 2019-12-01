@@ -6,12 +6,17 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
+import org.openqa.selenium.ie.InternetExplorerDriver;
 
 public class DriverFactory {
     public static DriverWrapper createInstance(DriverType type) {
         DriverWrapper driverWrapper;
 
         switch (type) {
+            case IEXPLORER:
+                WebDriverManager.iedriver().setup();
+                driverWrapper = new DriverWrapper(new InternetExplorerDriver());
+                break;
             case EDGE:
                 WebDriverManager.edgedriver().setup();
                 driverWrapper = new DriverWrapper(new EdgeDriver());

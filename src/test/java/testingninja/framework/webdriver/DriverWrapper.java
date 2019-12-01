@@ -15,7 +15,12 @@ public class DriverWrapper {
     }
 
     public void open(String url) {
-        driver.get(url);
+        if (System.getProperty("browser").contains("IEXPLORER")) {
+            driver.manage().window().maximize();
+            driver.navigate().to(url);
+        } else {
+            driver.get(url);
+        }
     }
 
     public void quit() {
