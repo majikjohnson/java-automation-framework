@@ -29,14 +29,7 @@ public class InvocationListener implements IInvokedMethodListener {
             DriverWrapper driverWrapper = DriverThreadManager.getDriverWrapper();
             if(testResult.getStatus() == ITestResult.FAILURE) {
                 ScreenshotHelper screenshotHelper = ScreenshotManager.getScreenshotHelper();
-                try {
-                    String screenshotName = testResult.getMethod().getMethodName();
-                    PropertyLoader propertyLoader = new PropertyLoader(System.getProperty("property.file.name"));
-                    String screenshotPath = System.getProperty("user.dir") + propertyLoader.getProperty("report.screenshots.path");
-                    screenshotHelper.captureScreenshot(driverWrapper, screenshotName, screenshotPath);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+                screenshotHelper.captureScreenshot(driverWrapper);
             }
             if (driverWrapper != null) {
                 driverWrapper.quit();
