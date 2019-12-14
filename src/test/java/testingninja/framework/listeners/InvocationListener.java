@@ -1,6 +1,5 @@
 package testingninja.framework.listeners;
 
-import testingninja.framework.utils.PropertyLoader;
 import testingninja.framework.utils.ScreenshotHelper;
 import testingninja.framework.utils.ScreenshotManager;
 import testingninja.framework.webdriver.DriverFactory;
@@ -10,7 +9,6 @@ import testingninja.framework.webdriver.DriverWrapper;
 import org.testng.IInvokedMethod;
 import org.testng.IInvokedMethodListener;
 import org.testng.ITestResult;
-import java.io.IOException;
 
 public class InvocationListener implements IInvokedMethodListener {
     @Override
